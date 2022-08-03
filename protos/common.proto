@@ -1,0 +1,722 @@
+enum cmd {
+    msg_base = 0;
+    msg_login = 1;
+
+    msg_user = 10;
+    msg_error_code = 11;
+    msg_broadcast = 12;
+    msg_room = 13;
+    msg_gm = 14;
+    msg_active = 15;
+    msg_chat = 16;
+}
+
+
+enum active_cmd {
+    activesInfoPush = 1;
+    activeBaseReq = 2;
+    activeBaseResp = 3;
+    activeRankReq = 4;
+    activeRankResp = 5;
+    activeOperateReq = 6;
+    activeOperateResp = 7;
+    activeRankRewardsPush = 8;
+    activeKongTouRewardPush = 9;
+}
+
+service msg_active_service {
+}
+
+
+message activesInfoPush {
+    repeated active_info_type active_infos = 1;  // 活动基础信息
+    required uint64 enter_start = 2;        // 入口开始时间
+    required uint64 enter_end = 3;          // 入口关闭时间
+}
+
+message activeBaseReq {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+}
+
+message activeBaseResp {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    optional act_base_type info = 3;                            // 积分活动基础信息
+    optional uint64 act_cur_score = 4;                          // 活动当前积分 用于消耗
+    optional uint64 act_score = 5;                              // 活动总积分
+    repeated uint64 exchange_jifen = 6;                         // 1金币对应积分值
+    repeated uint64 min_cost = 7;                               // 最低消耗
+}
+
+message activeRankReq {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required act_rank_type rank_type = 3;                       // 排行榜类型
+    required uint32 page = 4;                                   // 请求页数
+    required uint32 page_len = 5;                               // 每页长度
+}
+
+message activeRankResp {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required act_rank_type rank_type = 3;                       // 排行榜类型
+    repeated active_rank_rewards rank_rewards = 4;              // 排行榜奖励信息
+    required active_rank_rewards self_rank = 5;                 // 个人信息，名次为0时未上榜
+    required uint32 page = 6;                                   // 请求页数
+    required uint32 total_page = 7;                             // 总页数
+    required uint32 total_len = 8;                              // 总数
+}
+
+message activeOperateReq {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required act_operate_type type = 3;                         // 操作类型
+    optional act_lottery_type lottery = 4;                      // 抽奖
+    optional act_exchange_type exchange = 5;                    // 兑换
+    optional act_exchange_type ririling = 6;                    // 红包日日领
+    optional uint64 act_cur_score = 7;                          // 活动当前积分 用于消耗
+    optional uint64 act_score = 8;                              // 活动总积分
+}
+
+message activeOperateResp {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required act_operate_type type = 3;                         // 操作类型
+    repeated act_lottery_reward_type lottery = 4;               // 抽奖奖励
+    optional act_exchange_reward_type exchange = 5;             // 兑换奖励
+    optional act_ririling_reward_type ririling = 6;             // 红包日日领
+    optional uint64 act_cur_score = 7;                          // 活动当前积分 用于消耗
+    optional uint64 act_score = 8;                              // 活动总积分
+}
+
+
+message activeRankRewardsPush {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required act_rank_type rank_type = 3;                       // 排行榜类型
+    required active_item_type rewards = 4;                      // 奖励物品
+    required uint32 rank = 5;                                   // 排名
+}
+
+message activeKongTouRewardPush {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required uint64 rewards = 3;                                // 奖励物品
+}
+
+message active_info_type {
+    required active_type act_type = 1;                          // 活动类型
+    required string act_id = 2;                                 // 活动ID
+    required uint64 active_show_start = 3;                      // 活动展示开始时间
+    required uint64 active_start = 4;                           // 活动开始时间
+    required uint64 active_end = 5;                             // 活动结束时间
+    required uint64 active_show_end = 6;                        // 活动展示结束时间
+}
+
+message act_base_type {
+    optional act_lottery_base_type lottery_base = 1;                        // 抽奖信息
+    repeated act_exchange_base_type exchange_base = 2;                      // 兑换信息
+    repeated act_rank_type rank_type = 3;                                   // 活动的所有排行榜
+    repeated act_hongbaoririling_base_type hongbaoririling_base = 4;         // 红包日日领信息
+
+}
+
+message act_exchange_type {
+    required uint32 id = 1;                                     // 商品ID
+    required uint32 times = 2;                                  // 兑换次数
+}
+
+message active_rank_rewards {
+    required uint32 rank = 1;                                   // 名次
+    required uint64 user_id = 2;                                // 玩家ID
+    required string name = 3;                                   // 玩家昵称
+    required uint64 jifen = 4;                                  // 积分
+    required active_item_type rewards = 5;                      // 奖励
+}
+
+message act_lottery_base_type {
+    repeated act_lottery_reward_type lottery = 1;               // 抽奖格子物品
+    required uint64 once_cost = 2;                              // 单次消耗
+    required uint64 multi_cost = 3;                             // 多次消耗
+}
+
+message act_exchange_base_type {
+    required uint32 id = 1;                                     // 商品ID
+    required uint64 cost = 2;                                   // 兑换消耗
+    required active_item_type rewards = 3;                      // 奖励
+    required uint32 player_limit_times = 4;                     // 玩家限购次数
+    required uint32 player_got_times = 5;                       // 玩家已购次数
+    required uint32 world_limit_times = 6;                      // 本服限购次数
+    required uint32 world_got_times = 7;                        // 本服已购次数
+}
+
+message act_hongbaoririling_base_type {
+    required uint32 id = 1;                                     // 商品ID
+    required uint64 cost = 2;                                   // 兑换消耗
+    required active_item_type rewards = 3;                      // 奖励
+    required uint32 player_limit_times = 4;                     // 玩家限购次数
+    required uint32 player_got_times = 5;                       // 玩家已购次数
+    required uint32 world_limit_times = 6;                      // 本服限购次数
+    required uint32 world_got_times = 7;                        // 本服已购次数
+    required uint64 play_active_score = 8;                      // 玩家当前活动积分
+}
+
+message act_lottery_reward_type {
+    required uint32 id = 1;                                     // 格子ID
+    required active_item_type rewards = 2;                      // 奖励
+}
+
+message act_exchange_reward_type {
+    required uint32 id = 1;                                     // 商品ID
+    required active_item_type rewards = 2;                      // 兑换所得物品
+    required uint32 player_got_times = 3;                       // 玩家已购次数
+    required uint32 world_got_times = 4;                        // 本服已购次数
+}
+
+message act_ririling_reward_type {
+    required uint32 id = 1;                                     // 商品ID
+    required active_item_type rewards = 2;                      // 兑换所得物品
+    required uint32 player_got_times = 3;                       // 玩家已购次数
+    required uint32 world_got_times = 4;                        // 本服已购次数
+    required uint64 play_active_score = 5;                      // 玩家当前活动积分
+}
+
+message act_kongtou_reward_type {
+    required uint32 item_id = 1;
+    required uint32 ratio = 2;
+    required uint64 reward = 3;
+}
+
+message active_item_type {
+    required uint32 item_id = 1;                                // 物品ID
+    required uint64 num = 2;                                    // 数量
+}
+
+enum active_type {
+    jifen = 1;                                  // 积分
+    jinbiaosai = 2;							    // 锦标赛
+    tainti    = 3;								// 天梯
+    tianjianghongbao  = 4;                      // 天降红包
+    hongbaoririling = 5;                        // 红包日日领
+}
+
+enum act_operate_type {
+    lottery = 1;                                // 抽奖
+    exchange = 2;                               // 兑换
+    ririling = 3;                               // 日日领
+    kongtou = 4;                                // 空投
+}
+
+enum act_lottery_type {
+    once = 1;                                   // 单次抽奖
+    multi = 2;                                  // 多次抽奖
+}
+
+enum act_rank_type {
+    jifen_rank = 1001;                             // 积分排行榜
+    yingli_rank = 1002;                            // 盈利榜
+    yingfen_rank = 1003;                           // 赢分
+    jisha_rank = 1004;                             // 击杀
+
+}
+
+enum base_cmd {
+    heartBeatReq = 0;
+    heartBeatResp = 1;
+}
+
+service msg_base_service {
+}
+
+message heartBeatReq {
+    required uint32 id = 1;
+}
+message heartBeatResp {
+    required uint64 time = 1;   // 时间戳
+    required uint32 id = 2;
+}
+
+
+enum broadcast_cmd {
+    marqueePush = 0;        // 跑马灯
+}
+
+service msg_broadcast_service {
+}
+
+message marqueePush {
+    required uint32 id = 1;                 // 平台公告id / 游戏 id
+    required uint32 type = 2;               // 类型, 平台: 1, 游戏: 2
+    required uint32 priority = 3;           // 优先级, 数字越小优先级越高
+    optional uint32 executed = 4;           // 1开启公告,0 撤销公告
+    optional uint32 start_time = 5;         // 播放开始时间
+    optional uint32 end_time = 6;           // 播放结束时间
+    optional uint32 interval_time = 7;      // 播放间隔
+    optional uint32 limit_time = 8;         // 最大播放次数
+    optional string plat_msg = 9;           // 平台跑马灯文本
+    optional game_marquee game_msg= 10;     // 游戏跑马灯
+}
+
+message game_marquee {
+    required string rule_content = 1;       // 游戏跑马灯规则id
+    repeated content content_list = 2;      // 跑马灯内容
+}
+
+message content {
+    required msg_type type = 1;             // 0: chars / 1: number
+    optional string chars = 2;
+    optional uint64 number = 3;
+}
+
+enum msg_type {
+    chars = 0;
+    number = 1;
+}
+
+enum chat_cmd {
+    chatReq = 1;
+    chatPush = 2;
+}
+
+service msg_chat_service {
+}
+
+message chatReq {
+    required string content = 1;    // 内容
+}
+
+message chatPush {
+    required string content = 1;    // 内容
+    optional uint32 pos = 2;        // 座位
+}
+
+enum code_type {
+    login_fail = 10001;                         // 登录失败
+    req_frequently = 10002;                     // 请求过于频繁
+    account_forbidden = 10003;                  // 账号禁用
+    token_error = 10004;                        // token 错误
+    token_check_fail = 10005;                   // token 校验失败
+    token_timeout = 10006;                      // token 过期
+    token_invalable = 10007;                    // token 失效
+    user_not_exist = 10008;                     // 用户不存在
+    other_login = 10009;                        // 异地登录
+    force_kick = 10010;                         // 强制踢下线
+    server_stop = 10011;                        // 停服维护中
+    get_scores_fail = 10012;                    // 获取分数失败
+    enter_game_fail = 10013;                    // 进入游戏失败
+    create_friend_room_fail = 10014;            // 创建好友房间失败
+    join_friend_room_fail = 10015;              // 加入好友房间失败
+    max_count_limit = 10016;                    // 已经达到最大人数
+    room_not_exist = 10017;                     // 房间不存在
+    change_room_fail = 10018;                   // 切换房间失败
+    leave_room_fail = 10019;                    // 离开房间失败
+    get_lv_award_fail = 10020;                  // 领取等级奖励失败
+    get_fund_award_fail = 10021;                // 领取成长基金奖励失败
+    buy_fund_fail = 10022;                      // 购买成长基金失败
+    get_active_base_fail = 10023;               // 活动信息获取失败
+    active_rank_fail = 10024;                   // 活动排行榜获取失败
+    active_call_fail = 10025;                   // 活动抽奖失败
+    active_jifen_fail = 10026;                  // 活动积分不够
+    active_times_fail = 10027;                  // 活动次数不足
+    active_out_fail = 10028;                    // 不在活动中
+    get_friend_room_config_fail = 10029;        // 获取好友房配置失败
+    get_friend_room_info_fail = 10030;          // 获取好友房信息失败
+
+
+
+}
+
+message undefined {}
+
+enum error_code_cmd {
+    errorCodePush = 0;
+}
+
+service msg_error_code_service {
+}
+
+message errorCodePush {
+    required uint64 cmd = 1;        // 产生错误的请求协议号
+    required uint64 code = 2;       // 错误码
+    optional string content = 3;    // 额外文本内容
+}
+
+
+enum gm_cmd {
+    gmReq = 1;
+    gmResp = 2;
+}
+
+service msg_gm_service {
+}
+
+message gmReq {
+    required string gm_str = 1;
+}
+
+message gmResp {
+    optional data_type data = 1;
+    optional village_return acc_val = 2;
+}
+
+message data_type {
+    required uint64 merge_id = 1;           // 合并id
+    repeated pool_type pool_data = 2;       // 奖池数据(可修改)
+    required uint64 game_count = 3;         // 游戏总局数(可修改)
+    required uint64 costs = 4;              // 游戏总押分(可修改)
+    required uint32 average_value = 5;      // 玩家量级
+    required int64 rtp = 6;                 // rtp贡献值(可修改)
+    required uint64 day_costs = 7;          // 今日消耗(可修改)
+    required uint64 day_bonus = 8;          // 今日奖金(可修改)
+    required int64 check_game_count = 9;    // 检测局数(可修改)
+    required uint32 user_status = 10;       // 玩家状态(0:正常 1:大输 2:大赢)
+    required int32 hunter_rtp = 11;         // 捕猎rtp差值
+    required bool is_newer = 12;            // 是否新手
+}
+
+message village_return {
+    required int64 village_val = 1;         // 村庄玩法累计
+    required int64 return_val = 2;          // 05子弹价值返还累计
+}
+
+message pool_type {
+    required uint64 pool_id = 1;            // 奖池id
+    required int64 pool_val = 2;            // 奖池值
+    required int64 acc_val = 3;             // 累计值
+}
+
+
+enum login_cmd {
+    loginReq = 0;
+    loginResp = 1;
+    miniGameLoginReq = 2;
+    miniGameLoginResp = 3;
+}
+
+service msg_login_service {
+}
+
+message loginReq {
+    required string token = 1;
+    required string lang = 2;
+    required string code = 3;
+}
+
+message loginResp {
+    required user_info user_info = 1;
+    required string reconnect_token = 2;
+    required bool is_normal = 3;
+    required bool is_reconnect = 4;
+    optional switch_type switch = 5;
+}
+
+message switch_type {
+    optional uint32 gm = 1;                 // gm
+    optional uint32 fund = 2;               // 成长基金
+    optional uint32 lv_reward = 3;          // 等级奖励
+    optional uint32 roller_mode = 4;        // slot 滚轴模式
+    optional uint32 small_roller = 5;       // slot 小滚轴
+    optional uint32 slot_multi = 6;         // slot 多人
+    optional uint32 slot_jp = 7;            // slot jp
+    optional uint32 hunter_jp = 8;          // hunter jp
+}
+
+message miniGameLoginReq {
+    required string app_id = 1;     // app_id
+    required uint64 time_ms = 2;    // 时间(毫秒)
+    required string open_id = 3;    // open_id
+    required string sign = 4;       // md5加密后的值(app_id + time_ms + open_id + key)
+    required bool is_login = 5;     // 是否登陆
+}
+
+message miniGameLoginResp {
+    required string reconnect_token = 1;
+    required bool is_reconnect = 2;
+}
+
+
+enum room_cmd {
+    createFriendRoomReq = 0;        // 创建好友房间请求
+    createFriendRoomResp = 1;       // 创建好友房间返回
+    joinFriendRoomReq = 2;          // 加入好友房间请求
+    joinFriendRoomResp = 3;         // 加入好友房间返回
+    enterRoomReq = 4;               // 进入房间请求
+    enterRoomResp = 5;              // 进入房间返回
+    changeRoomReq = 6;              // 切换房间请求
+    changeRoomResp = 7;             // 切换房间返回
+    leaveRoomReq = 8;               // 离开房间请求
+    leaveRoomResp = 9;              // 离开房间返回
+    readyReq = 10;                  // 准备完成通知
+    startMatchReq = 11;             // 开始匹配请求
+    startMatchResp = 12;            // 开始匹配返回
+    cancelMatchReq = 13;            // 取消匹配请求
+    cancelMatchResp = 14;           // 取消匹配返回
+    qzdzFriendRoomConfigReq = 15;   // 抢庄类好友房间配置请求
+    qzdzFriendRoomConfigResp = 16;  // 抢庄类好友房间配置响应
+    qzdzCreateFriendRoomReq = 17;   // 抢庄类好友房间创建创建请求
+    qzdzCreateFriendRoomResp = 18;  // 抢庄类好友房间创建创建响应
+    qzdzFriendRoomInfoReq = 19;     // 抢庄类好友房间信息请求
+    qzdzFriendRoomInfoResp = 20;    // 抢庄类好友房间信息响应
+    qzdzJoinFriendRoomReq = 21;     // 抢庄类加入好友房请求
+    qzdzJoinFriendRoomResp = 22;    // 抢庄类加入好友房响应
+}
+
+service msg_room_service {
+}
+
+message createFriendRoomReq {
+    required uint32 room_type = 1;
+}
+
+message createFriendRoomResp {
+    required uint32 room_id = 1;
+}
+
+message joinFriendRoomReq {
+    required uint32 room_id = 1;
+}
+
+message joinFriendRoomResp {
+    optional uint32 room_type = 1;
+}
+
+message enterRoomReq {
+    required uint32 room_type = 1;
+    required uint32 room_id = 2;
+}
+
+message enterRoomResp {
+}
+
+message changeRoomReq {
+    required uint32 room_id = 1;
+}
+
+message changeRoomResp {
+}
+
+message leaveRoomReq {
+}
+
+message leaveRoomResp {
+}
+
+message readyReq {
+}
+
+message startMatchReq {
+    required uint32 room_type = 1;
+    required uint32 room_id = 2;
+}
+
+message startMatchResp {
+}
+
+message cancelMatchReq {
+}
+
+message cancelMatchResp {
+}
+
+/* 抢庄类好友房间 */
+
+message qzdzFriendRoomConfigReq {
+}
+
+message qzdzFriendRoomConfigResp {
+    repeated qzdz_friend_room_config_type config = 1;
+}
+
+message qzdzCreateFriendRoomReq {
+    repeated qzdz_friend_room_config_type config = 1;
+}
+
+message qzdzCreateFriendRoomResp {
+    required uint32 room_id = 1;
+}
+
+message qzdzFriendRoomInfoReq {
+    required uint32 room_id = 1;
+}
+
+message qzdzFriendRoomInfoResp {
+    repeated qzdz_friend_room_config_type config = 1;
+}
+
+message qzdzJoinFriendRoomReq {
+    required uint32 room_id = 1;
+}
+
+message qzdzJoinFriendRoomResp {
+}
+
+message qzdz_friend_room_config_type {
+    required qzdz_friend_room_config_id config_id = 1;      // 配置id
+    repeated uint64 list = 2;                               // 配置数值列表
+}
+
+enum qzdz_friend_room_config_id {
+    room_type = 1;                                          // 房间倍场
+    base_scores = 2;                                        // 底注
+    game_count = 3;                                         // 游戏局数
+    feature = 4;                                            // 特色, 0: 无, 1: 4倍, 2: 10倍, 3: 下注加倍, 4: 疯狂加倍
+    enter_scores_multi = 5;                                 // 准入倍数
+}
+
+
+enum user_cmd {
+    enterGameReq = 0;
+    enterGameResp = 1;
+    getUserInfoReq = 2;
+    getUserInfoResp = 3;
+    setUserInfoReq = 4;
+    setUserInfoResp = 5;
+    getLvAwardReq = 6;
+    getLvAwardResp = 7;
+    buyFundReq = 8;
+    buyFundResp = 9;
+    getFundAwardReq = 10;
+    getFundAwardResp = 11;
+    updateTokenPush = 12;
+    updateUserInfoPush = 13;
+    kickPush = 14;
+    lvAwardInfoPush = 15;
+    exchangeGuidePush = 27;
+}
+
+service msg_user_service {
+
+}
+
+message enterGameReq {
+    required uint64 game_id = 1;
+}
+
+message enterGameResp {
+    required bool is_in_friend_room = 1;
+    required uint32 room_id = 2;
+    required uint32 room_type = 3;
+}
+
+message getUserInfoReq {
+    required uint64 user_id = 1;
+}
+
+message getUserInfoResp {
+    required user_info user_info = 1;
+}
+
+message setUserInfoReq {
+    required user_key_type user_key = 1;
+    required string value = 2;
+}
+
+message setUserInfoResp {
+}
+
+message getLvAwardReq {
+    required uint32 lv = 1;
+}
+
+message getLvAwardResp {
+    required uint64 award_scores = 1;
+    required uint64 scores = 2;
+    repeated uint32 lv_award = 3;
+}
+
+message buyFundReq {
+    required fund_type type = 1;
+}
+
+message buyFundResp {
+    required fund_type type = 1;
+    required uint64 scores = 2;
+    repeated uint32 fund_award = 3;
+}
+
+message getFundAwardReq {
+    required uint32 lv = 1;
+}
+
+message getFundAwardResp {
+    required uint64 award_scores = 1;
+    required uint64 scores = 2;
+    repeated uint32 fund_award = 3;
+}
+
+message updateTokenPush {
+    required string reconnect_token = 1;
+}
+
+message updateUserInfoPush {
+    repeated update_type update = 1;
+    required user_info user_info = 2;
+}
+
+message kickPush {
+    required code_type code = 1;
+    required string content = 2;
+    optional uint64 begin_time = 3;                             // 游戏维护开始时间戳, 毫秒
+    optional uint64 end_time = 4;                               // 游戏维护结束时间戳, 毫秒
+}
+
+message lvAwardInfoPush{
+    required uint32 cur_lv = 1;                                 //當前等級
+    required uint64 award_scores = 2;                           //奖励分总和
+    required uint64 scores = 3;                                 //当前玩家总分
+}
+
+message update_type {
+    required update_param_type key = 1;
+    required string value = 2;
+}
+
+
+message exchangeGuidePush {
+    required uint64 val1 = 1;
+    required uint64 val2 = 2;
+}
+message user_info {
+    required uint64 user_id = 1;
+    required string user_name = 2;
+    required uint64 scores = 3;
+    required uint32 lv = 4;
+    required uint32 max_lv = 5;
+    required uint64 exp = 6;
+    required uint64 max_exp = 7;
+    required uint32 avatar = 8;
+    required fund_type fund_type = 9;
+    optional award_type award_info = 10;
+    required uint32 coin_type = 11;
+    required uint64 sn_id = 12;
+    required uint64 agent_id = 13;
+    required uint32 coin_rate = 14;
+}
+
+message award_type {
+    repeated uint32 lv_award = 1;               // 存可以领取的等级列表
+    repeated uint32 fund_award = 2;             // 存可以领取的基金等级列表
+}
+
+enum fund_type {
+    fund_none = 0;
+    fund_silver = 1;
+    fund_gold = 2;
+    fund_diamond = 3;
+}
+
+enum user_key_type {
+    avatar = 1;
+}
+
+enum update_param_type {
+    add_scores = 1;
+    sub_scores = 2;
+    lv = 3;
+    exp = 4;
+    active_cur_scores = 6;
+}
+
+
+

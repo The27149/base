@@ -1,0 +1,355 @@
+{
+"keys":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
+"ids":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
+"data":{		"1" : 
+			{
+				"level": 1 ,
+				"levelReward": 0 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"2" : 
+			{
+				"level": 2 ,
+				"levelReward": 4 ,
+				"fundRewardSilver": 800 ,
+				"fundRewardGold": 4000 ,
+				"fundRewardDiamond": 8000 },
+		"3" : 
+			{
+				"level": 3 ,
+				"levelReward": 6 ,
+				"fundRewardSilver": 1100 ,
+				"fundRewardGold": 5000 ,
+				"fundRewardDiamond": 10000 },
+		"4" : 
+			{
+				"level": 4 ,
+				"levelReward": 10 ,
+				"fundRewardSilver": 1400 ,
+				"fundRewardGold": 6000 ,
+				"fundRewardDiamond": 11000 },
+		"5" : 
+			{
+				"level": 5 ,
+				"levelReward": 15 ,
+				"fundRewardSilver": 1700 ,
+				"fundRewardGold": 7500 ,
+				"fundRewardDiamond": 13000 },
+		"6" : 
+			{
+				"level": 6 ,
+				"levelReward": 30 ,
+				"fundRewardSilver": 2000 ,
+				"fundRewardGold": 8500 ,
+				"fundRewardDiamond": 15000 },
+		"7" : 
+			{
+				"level": 7 ,
+				"levelReward": 60 ,
+				"fundRewardSilver": 2400 ,
+				"fundRewardGold": 10000 ,
+				"fundRewardDiamond": 16000 },
+		"8" : 
+			{
+				"level": 8 ,
+				"levelReward": 100 ,
+				"fundRewardSilver": 2700 ,
+				"fundRewardGold": 11000 ,
+				"fundRewardDiamond": 18000 },
+		"9" : 
+			{
+				"level": 9 ,
+				"levelReward": 200 ,
+				"fundRewardSilver": 3100 ,
+				"fundRewardGold": 12500 ,
+				"fundRewardDiamond": 20000 },
+		"10" : 
+			{
+				"level": 10 ,
+				"levelReward": 400 ,
+				"fundRewardSilver": 3600 ,
+				"fundRewardGold": 13500 ,
+				"fundRewardDiamond": 22000 },
+		"11" : 
+			{
+				"level": 11 ,
+				"levelReward": 700 ,
+				"fundRewardSilver": 4200 ,
+				"fundRewardGold": 15000 ,
+				"fundRewardDiamond": 24000 },
+		"12" : 
+			{
+				"level": 12 ,
+				"levelReward": 1000 ,
+				"fundRewardSilver": 5000 ,
+				"fundRewardGold": 17000 ,
+				"fundRewardDiamond": 26000 },
+		"13" : 
+			{
+				"level": 13 ,
+				"levelReward": 1500 ,
+				"fundRewardSilver": 6000 ,
+				"fundRewardGold": 19000 ,
+				"fundRewardDiamond": 28000 },
+		"14" : 
+			{
+				"level": 14 ,
+				"levelReward": 3000 ,
+				"fundRewardSilver": 7000 ,
+				"fundRewardGold": 21000 ,
+				"fundRewardDiamond": 31000 },
+		"15" : 
+			{
+				"level": 15 ,
+				"levelReward": 4500 ,
+				"fundRewardSilver": 9000 ,
+				"fundRewardGold": 24000 ,
+				"fundRewardDiamond": 35000 },
+		"16" : 
+			{
+				"level": 16 ,
+				"levelReward": 7000 ,
+				"fundRewardSilver": 12000 ,
+				"fundRewardGold": 28000 ,
+				"fundRewardDiamond": 39000 },
+		"17" : 
+			{
+				"level": 17 ,
+				"levelReward": 10000 ,
+				"fundRewardSilver": 15000 ,
+				"fundRewardGold": 32000 ,
+				"fundRewardDiamond": 44000 },
+		"18" : 
+			{
+				"level": 18 ,
+				"levelReward": 15000 ,
+				"fundRewardSilver": 19000 ,
+				"fundRewardGold": 38000 ,
+				"fundRewardDiamond": 51000 },
+		"19" : 
+			{
+				"level": 19 ,
+				"levelReward": 20000 ,
+				"fundRewardSilver": 25000 ,
+				"fundRewardGold": 45000 ,
+				"fundRewardDiamond": 59000 },
+		"20" : 
+			{
+				"level": 20 ,
+				"levelReward": 25000 ,
+				"fundRewardSilver": 33000 ,
+				"fundRewardGold": 53000 ,
+				"fundRewardDiamond": 68000 },
+		"21" : 
+			{
+				"level": 21 ,
+				"levelReward": 35000 ,
+				"fundRewardSilver": 40000 ,
+				"fundRewardGold": 64000 ,
+				"fundRewardDiamond": 80000 },
+		"22" : 
+			{
+				"level": 22 ,
+				"levelReward": 50000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 75000 ,
+				"fundRewardDiamond": 93000 },
+		"23" : 
+			{
+				"level": 23 ,
+				"levelReward": 60000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 90000 ,
+				"fundRewardDiamond": 110000 },
+		"24" : 
+			{
+				"level": 24 ,
+				"levelReward": 70000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 110000 ,
+				"fundRewardDiamond": 130000 },
+		"25" : 
+			{
+				"level": 25 ,
+				"levelReward": 80000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 130000 ,
+				"fundRewardDiamond": 150000 },
+		"26" : 
+			{
+				"level": 26 ,
+				"levelReward": 90000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 160000 ,
+				"fundRewardDiamond": 180000 },
+		"27" : 
+			{
+				"level": 27 ,
+				"levelReward": 100000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 190000 ,
+				"fundRewardDiamond": 220000 },
+		"28" : 
+			{
+				"level": 28 ,
+				"levelReward": 110000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 230000 ,
+				"fundRewardDiamond": 260000 },
+		"29" : 
+			{
+				"level": 29 ,
+				"levelReward": 120000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 280000 ,
+				"fundRewardDiamond": 300000 },
+		"30" : 
+			{
+				"level": 30 ,
+				"levelReward": 130000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 320000 ,
+				"fundRewardDiamond": 360000 },
+		"31" : 
+			{
+				"level": 31 ,
+				"levelReward": 140000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 380000 ,
+				"fundRewardDiamond": 420000 },
+		"32" : 
+			{
+				"level": 32 ,
+				"levelReward": 150000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 440000 ,
+				"fundRewardDiamond": 490000 },
+		"33" : 
+			{
+				"level": 33 ,
+				"levelReward": 160000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 520000 ,
+				"fundRewardDiamond": 570000 },
+		"34" : 
+			{
+				"level": 34 ,
+				"levelReward": 170000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 550000 ,
+				"fundRewardDiamond": 660000 },
+		"35" : 
+			{
+				"level": 35 ,
+				"levelReward": 180000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 760000 },
+		"36" : 
+			{
+				"level": 36 ,
+				"levelReward": 190000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 880000 },
+		"37" : 
+			{
+				"level": 37 ,
+				"levelReward": 200000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 1000000 },
+		"38" : 
+			{
+				"level": 38 ,
+				"levelReward": 210000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 1150000 },
+		"39" : 
+			{
+				"level": 39 ,
+				"levelReward": 220000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 1350000 },
+		"40" : 
+			{
+				"level": 40 ,
+				"levelReward": 230000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 1550000 },
+		"41" : 
+			{
+				"level": 41 ,
+				"levelReward": 240000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 1800000 },
+		"42" : 
+			{
+				"level": 42 ,
+				"levelReward": 250000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 2000000 },
+		"43" : 
+			{
+				"level": 43 ,
+				"levelReward": 260000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 2100000 },
+		"44" : 
+			{
+				"level": 44 ,
+				"levelReward": 270000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"45" : 
+			{
+				"level": 45 ,
+				"levelReward": 280000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"46" : 
+			{
+				"level": 46 ,
+				"levelReward": 290000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"47" : 
+			{
+				"level": 47 ,
+				"levelReward": 300000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"48" : 
+			{
+				"level": 48 ,
+				"levelReward": 400000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"49" : 
+			{
+				"level": 49 ,
+				"levelReward": 500000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 },
+		"50" : 
+			{
+				"level": 50 ,
+				"levelReward": 1000000 ,
+				"fundRewardSilver": 0 ,
+				"fundRewardGold": 0 ,
+				"fundRewardDiamond": 0 }
+}
+}

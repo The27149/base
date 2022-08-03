@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "4d531cec-9bed-4c8b-88f7-948825bde13e",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "Overlord": {
+      "ver": "1.0.6",
+      "uuid": "a43b7bdb-fd98-40e5-bfdc-94e99607610e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "4d531cec-9bed-4c8b-88f7-948825bde13e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1,
+      "trimX": 0,
+      "trimY": 2,
+      "width": 256,
+      "height": 254,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+	"keys": [1,2],
+
+	"ids": ["1&1&10&20","1&2&20&999999999","2&1&10&20","2&2&60&9999"],
+
+	"data": {
+		"1&1&10&20":
+			{
+				"gameType": 1 ,
+				"condition": 1 ,
+				"conditionMin": 10 ,
+				"conditionMax": 20 ,
+				"form": 1 ,
+				"randomRatio": [150,200,250,300] ,
+				"content": "swyd_slotled" },
+		"1&2&20&999999999":
+			{
+				"gameType": 1 ,
+				"condition": 2 ,
+				"conditionMin": 20 ,
+				"conditionMax": 999999999 ,
+				"form": 2 ,
+				"randomRatio": [] ,
+				"content": "swyd_tips1" },
+		"2&1&10&20":
+			{
+				"gameType": 2 ,
+				"condition": 1 ,
+				"conditionMin": 10 ,
+				"conditionMax": 20 ,
+				"form": 1 ,
+				"randomRatio": [300] ,
+				"content": "swyd_hunterled" },
+		"2&2&60&9999":
+			{
+				"gameType": 2 ,
+				"condition": 2 ,
+				"conditionMin": 60 ,
+				"conditionMax": 9999 ,
+				"form": 2 ,
+				"randomRatio": [] ,
+				"content": "swyd_tips2" }
+	}
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "a69e21cd-b8de-4093-b986-da97066a0b3d",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "Oblivion": {
+      "ver": "1.0.6",
+      "uuid": "480e3817-d9f4-4c67-a3d3-f65e7eacc7cb",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "a69e21cd-b8de-4093-b986-da97066a0b3d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 38,
+      "trimY": 2,
+      "width": 180,
+      "height": 252,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

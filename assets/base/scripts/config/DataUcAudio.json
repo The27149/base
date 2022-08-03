@@ -1,0 +1,36 @@
+{
+	"keys": ["level_up","open_box","win_lot","li_hai"],
+
+	"ids": ["level_up","open_box","win_lot","li_hai"],
+
+	"data": {
+		"level_up" : 
+			{
+				"audioKey": "level_up" ,
+				"audio": "level_up" ,
+				"dubZh": "level_up_sound" ,
+				"dubEn": "level_up_sound_en" ,
+				"explain": "升级时的音效和配音" },
+		"open_box" : 
+			{
+				"audioKey": "open_box" ,
+				"audio": "open_box" ,
+				"dubZh": "N/A" ,
+				"dubEn": "N/A" ,
+				"explain": "打开奖励时的音效" },
+		"win_lot" : 
+			{
+				"audioKey": "win_lot" ,
+				"audio": "N/A" ,
+				"dubZh": "win_lot" ,
+				"dubEn": "win_lot_en" ,
+				"explain": "跑马灯引导正式玩时的配音" },
+		"li_hai" : 
+			{
+				"audioKey": "li_hai" ,
+				"audio": "N/A" ,
+				"dubZh": "li_hai" ,
+				"dubEn": "li_hai_en" ,
+				"explain": "弹框引导正式玩时的配音" }
+	}
+}
